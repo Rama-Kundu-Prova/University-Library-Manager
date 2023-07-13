@@ -28,9 +28,25 @@ public class AdminController {
 
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String home() {
 		return "admin/home";
+	}
+	@GetMapping("/changePassword")
+	public String loadChangePassword()
+	{
+		return "user/change_password";
+	}
+	
+	@GetMapping("/updateProfile")
+	public String loadUpdateProfile()
+	{
+		return "user/update_profile";
+	}
+	@GetMapping("/profile")
+	public String loadProfile()
+	{
+		return "user/profile";
 	}
 
 }

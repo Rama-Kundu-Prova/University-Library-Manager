@@ -15,19 +15,47 @@
 <footer class="bg-dark text-white pt-5 pb-4" th:fragment="footer">
 <div class="container text-center text-md-left">
 <div class="row text-center text-md-left">
-
 <div class="col-md-6 col-lg-6 col-xl-6 mx-auto  ">
-<h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
-<p>Jahangirnagar University, Savar, Dhaka.</p>
-<p>provakunduju27@gmail.com</p>
-<p>+8801980248056</p>
+<h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Company's Motive </h5>
+
+<p>
+To provide a library manager system to a librarian of a university is the main motive.
+</p>
+
 </div>
 
 <div class="col-md-5 col-lg-5 col-xl-5 mx-auto  ">
-Copyright @2023 All rights reserved by:
+<h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+<p>
+<i class="fas fa-home mr-3"> </i> Jahangirnagar University, Savar, Dhaka.
+
+
+</p>
+
+<p>
+<i class="fas fa-envelope mr-3"> </i>  provakunduju27@gmail.com
+
+</p>
+<p>
+<i class="fas fa-phone mr-3"> </i>+880 01980248056
+</p>
+
+
+</div>
+
+
+
+</div>
+<hr class="mb-4">
+<div class="col-md-6 col-lg-6 col-xl-6 mx-auto  ">
+<div class="col-md-7 col-lg-8">
+<p>Copyright @2023 All rights reserved by:
 <a href="#" style="text-decoration: none;">
-<strong class="text-warning"> Rama Kundu</strong>	
+<strong class="text-warning"> Prova</strong>	
+
+
 </a>
+
 
 <div >
 Server Time: 
@@ -39,18 +67,29 @@ Server Time:
         <span id="session">AM</span> 
        
 </div>
+ 
+
+</p>
+
+<th:block th:if="${admin==NULL}">
+<script type="text/javascript" src="js/script.js">
+    </script>
+    </th:block>
+ <th:block th:if="${admin!=NULL}">
+ <script type="text/javascript" src="../js/script.js">
+    </script>
+ 
+ </th:block>
+    
+   
+
 </div>
 
 
 </div>
-
-
-
-</div>
-
-<script type="text/javascript" src="js/script.js"> </script>
 
 </footer>
+
 	
    
 	<!-- Bootstrap JS -->

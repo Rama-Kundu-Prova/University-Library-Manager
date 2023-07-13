@@ -47,7 +47,7 @@ public class SecurityConfig {
 		.authorizeRequests()
 		.requestMatchers("/admin/**").hasRole("ADMIN").requestMatchers("/user/**").hasRole("USER")
 		.requestMatchers("/**").permitAll().and().formLogin().loginPage("/signin").loginProcessingUrl("/login")
-		.defaultSuccessUrl("/admin/").and().csrf().disable();
+		.defaultSuccessUrl("/admin/home").and().csrf().disable();
 		httpSecurity.authenticationProvider(getDaoAuthProvider());
 
 	return httpSecurity.build();
