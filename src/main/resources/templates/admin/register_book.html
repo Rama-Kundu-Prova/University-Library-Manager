@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Font Awesome -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+	rel="stylesheet" />
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet" />
+<!-- MDB -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+	rel="stylesheet" />
+	
+<link rel="stylesheet" th:href="@{../css/register_book.css}">
+
+
+<title>register_book</title>
+</head>
+<body>
+
+
+	<!-- Importing NavBar -->
+	<div th:insert="navbar.html :: navbar"></div>
+
+	<!-------Inner part-------->
+	<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <img src="../img/book2.jpg"
+            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+            alt="Sample photo">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Book Registration</h3>
+
+            <form class="px-md-2">
+
+              <div class="form-outline mb-4">
+                <input type="text" name="bookName" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Book Name</label>
+              </div>
+              
+              <div class="form-outline mb-4">
+                <input type="text" name="bookAuthor" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Author</label>
+              </div>
+              
+              <div class="form-outline mb-4">
+                <input type="text" name="bookPublisher" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Publisher</label>
+              </div>
+              
+              <div class="form-outline mb-4">
+                <input type="text" name="bookEdition" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Edition</label>
+              </div>
+              
+              <div class="form-outline mb-4">
+                <input type="text" name="category" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Category</label>
+              </div>
+              
+              <div class="form-outline mb-4">
+                <input type="text" name="totalCopy" id="form3Example1q" class="form-control" />
+                <label class="form-label" for="form3Example1q">Total Copy</label>
+              </div>
+              
+              
+
+              <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+	
+	<!-- Importing Footer -->
+	<div th:insert="footer.html :: footer"></div>
+
+
+	<!-- MDB -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js">
+		
+	</script>
+
+
+
+
+</body>
+</html>

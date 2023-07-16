@@ -35,18 +35,24 @@ public class AdminController {
 	@GetMapping("/changePassword")
 	public String loadChangePassword()
 	{
-		return "user/change_password";
+		return "admin/change_password";
 	}
 	
 	@GetMapping("/updateProfile")
 	public String loadUpdateProfile()
 	{
-		return "user/update_profile";
+		return "admin/update_profile";
 	}
 	@GetMapping("/profile")
 	public String loadProfile()
 	{
-		return "user/profile";
+		return "admin/profile";
+	}
+	
+	@GetMapping("/register_book")
+	public String register_book() 
+	{
+		return "admin/register_book";
 	}
 
 }

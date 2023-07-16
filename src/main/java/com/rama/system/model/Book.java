@@ -15,9 +15,8 @@ public class Book {
 	String bookAuthor;
 	String bookPublisher;
 	String bookEdition;
-	int availableCopy;
 	int totalCopy;
-	String Category;
+	String category;
 	public int getBookId() {
 		return bookId;
 	}
@@ -48,12 +47,7 @@ public class Book {
 	public void setBookEdition(String bookEdition) {
 		this.bookEdition = bookEdition;
 	}
-	public int getAvailableCopy() {
-		return availableCopy;
-	}
-	public void setAvailableCopy(int availableCopy) {
-		this.availableCopy = availableCopy;
-	}
+	
 	public int getTotalCopy() {
 		return totalCopy;
 	}
@@ -61,10 +55,10 @@ public class Book {
 		this.totalCopy = totalCopy;
 	}
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
 	
 	
