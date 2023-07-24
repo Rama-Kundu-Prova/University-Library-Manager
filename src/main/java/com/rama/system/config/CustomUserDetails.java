@@ -6,33 +6,33 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.rama.system.model.Admin;
+import com.rama.system.model.User;
 
 public class CustomUserDetails implements UserDetails{
-	private Admin admin;
+	private User user;
 
-	public CustomUserDetails(Admin admin) {
+	public CustomUserDetails(User user) {
 		super();
-		this.admin = admin;
+		this.user = user;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(admin.getRole());
+		SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
 		return Arrays.asList(simpleGrantedAuthority);
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return admin.getAdminPassword();
+		return user.getUserPassword();
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return admin.getAdminEmail();
+		return user.getUserEmail();
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class CustomUserDetails implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return admin.isEnable();
+		return user.isEnable();
 	}
 	
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.rama.system.model.Admin;
+import com.rama.system.model.User;
 import com.rama.system.repository.UserRepository;
 import com.rama.system.service.UserService;
 
@@ -34,8 +34,8 @@ public class HomeController {
 
 		if (p != null) {
 			String email = p.getName();
-			Admin admin = userRepository.findByAdminEmail(email);
-			m.addAttribute("admin", admin);
+			User user = userRepository.findByUserEmail(email);
+			m.addAttribute("user", user);
 		}
 
 	}
@@ -52,13 +52,13 @@ public class HomeController {
 		return "register";
 	}
 	@PostMapping("/createUser")
-	public String createUser(@ModelAttribute Admin admin,HttpServletRequest request) {
+	public String createUser(@ModelAttribute User user,HttpServletRequest request) {
 
 		
 		 String url=request.getRequestURI().toString();
 		 url=url.replace(request.getServletPath(), "");
 		 
-		boolean f = userService.checkEmail(admin.getAdminEmail());
+		boolean f = userService.checkEmail(user.getUserEmail());
 		int ok=0;
 		
 		if (f) {
@@ -68,7 +68,7 @@ public class HomeController {
 		}
 		else
 		{
-			Admin admininfo = userService.createUser(admin,url);
+			User admininfo = userService.createUser(user,url);
 			
 
 			/*if (userInfo != null) {
@@ -80,7 +80,6 @@ public class HomeController {
 		}
 		if(ok==1)
 		{
-			System.out.println("hereeeeeeeeeeeeeeeeeeeee");
 			return "redirect:/register";
 		}
 		else

@@ -40,7 +40,7 @@
 
 
 
-				<th:block th:if="${admin==NULL}">
+				<th:block th:if="${user==NULL}">
 
 					<!-- Right links -->
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -57,7 +57,7 @@
 
 
 
-				<th:block th:if="${admin!=NULL}">
+				<th:block th:if="${user!=NULL}">
 
 					<!-- Left links -->
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -73,7 +73,7 @@
 						<li class="nav-item dropdown me-4"> <a
 							class="nav-link active dropdown-toggle" href="#"
 							id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false"> [[${admin.adminName}]] </a>
+							aria-expanded="false"> [[${user.userName}]] </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="profile">View
 										Profile</a></li>

@@ -3,13 +3,14 @@ package com.rama.system.service;
 
 import java.util.Random;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.rama.system.model.Admin;
+import com.rama.system.model.User;
 import com.rama.system.repository.UserRepository;
 import jakarta.mail.internet.MimeMessage;
 
@@ -25,14 +26,14 @@ public class UserServiceImpl implements UserService{
 	private JavaMailSender mailSender;
 	@Override
 	public boolean checkEmail(String email) {
-		return userRepo.existsByAdminEmail(email);
+		return userRepo.existsByUserEmail(email);
 	}
 
 	@Override
-	public Admin createUser(Admin admin, String url) {
-		admin.setAdminPassword(passwordEncoder.encode(admin.getAdminPassword()));
-		admin.setRole("ROLE_ADMIN");
-		admin.setEnable(false);
+	public User createUser(User user, String url) {
+		user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+		user.setRole("ROLE_USER");
+		user.setEnable(false);
 		
 		
 	    String upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -53,16 +54,16 @@ public class UserServiceImpl implements UserService{
 	    String rn = sb.toString();
 	   
 	    
-		admin.setVerificationCode(rn);
+		user.setVerificationCode(rn);
 		
-		sendVerificationMail(admin, url);
-		return userRepo.save(admin);
+		sendVerificationMail(user, url);
+		return userRepo.save(user);
 	}
-	private void sendVerificationMail(Admin admin, String url)
+	private void sendVerificationMail(User user, String url)
 	{
 	
 		String from ="eclubsite27@gmail.com";
-		String to=admin.getAdminEmail();
+		String to=user.getUserEmail();
 		String subject="Account Verification";
 		String content="Dear [[name]],<br>"
 				+ "Please click the link bellow to verify your registration:<br>"
@@ -78,8 +79,8 @@ public class UserServiceImpl implements UserService{
 			helper.setFrom(from,"E-Club");
 			helper.setTo(to);
 			helper.setSubject(subject);
-			content=content.replace("[[name]]", admin.getAdminName());
-			String siteUrl="Http://localhost:8080"+"/verify?code="+admin.getVerificationCode();
+			content=content.replace("[[name]]", user.getUserName());
+			String siteUrl="Http://localhost:8080"+"/verify?code="+user.getVerificationCode();
 
 			content =content.replace("[[URL]]", siteUrl);
 			helper.setText(content,true);
@@ -97,12 +98,12 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean verifyAccount(String code) {
 	    
-		Admin admin= userRepo.findByVerificationCode(code);
-		if(admin!=null)
+		User user= userRepo.findByVerificationCode(code);
+		if(user!=null)
 		{
-			admin.setEnable(true);
-			admin.setVerificationCode(null);
-			userRepo.save(admin);
+			user.setEnable(true);
+			user.setVerificationCode(null);
+			userRepo.save(user);
 			return true;
 		}
 		return false;

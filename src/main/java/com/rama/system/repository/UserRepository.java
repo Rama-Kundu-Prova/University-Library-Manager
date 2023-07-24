@@ -6,13 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 
-import com.rama.system.model.Admin;
+import com.rama.system.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<Admin, Integer>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 	
-	public boolean existsByAdminEmail(String email);
-	public Admin findByAdminEmail(String email);
-	public Admin findByVerificationCode(String code);
+	public boolean existsByUserEmail(String email);
+	public User findByUserEmail(String email);
+	public User findByVerificationCode(String code);
 
 }

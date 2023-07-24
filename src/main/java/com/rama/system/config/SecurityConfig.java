@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -47,7 +48,7 @@ public class SecurityConfig {
 		.authorizeRequests()
 		.requestMatchers("/admin/**").hasRole("ADMIN").requestMatchers("/user/**").hasRole("USER")
 		.requestMatchers("/**").permitAll().and().formLogin().loginPage("/signin").loginProcessingUrl("/login")
-		.defaultSuccessUrl("/admin/home").and().csrf().disable();
+		.defaultSuccessUrl("/user/home").and().csrf().disable();
 		httpSecurity.authenticationProvider(getDaoAuthProvider());
 
 	return httpSecurity.build();
