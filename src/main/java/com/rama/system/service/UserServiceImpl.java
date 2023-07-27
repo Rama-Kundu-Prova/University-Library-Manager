@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService{
 	    
 		user.setVerificationCode(rn);
 		
+		
 		sendVerificationMail(user, url);
 		return userRepo.save(user);
 	}

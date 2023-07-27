@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,7 +69,7 @@ public class HomeController {
 		}
 		else
 		{
-			User admininfo = userService.createUser(user,url);
+			User userinfo = userService.createUser(user,url);
 			
 
 			/*if (userInfo != null) {
